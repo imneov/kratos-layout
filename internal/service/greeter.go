@@ -4,7 +4,7 @@ import (
 	"context"
 
 	v1 "github.com/go-kratos/kratos-layout/api/helloworld/v1"
-	"github.com/go-kratos/kratos-layout/internal/biz"
+	"github.com/go-kratos/kratos-layout/internal/model"
 	"github.com/go-kratos/kratos/v2/log"
 )
 
@@ -12,12 +12,12 @@ import (
 type GreeterService struct {
 	v1.UnimplementedGreeterServer
 
-	uc  *biz.GreeterUsecase
+	uc  *model.GreeterUsecase
 	log *log.Helper
 }
 
 // NewGreeterService new a greeter service.
-func NewGreeterService(uc *biz.GreeterUsecase, logger log.Logger) *GreeterService {
+func NewGreeterService(uc *model.GreeterUsecase, logger log.Logger) *GreeterService {
 	return &GreeterService{uc: uc, log: log.NewHelper(logger)}
 }
 

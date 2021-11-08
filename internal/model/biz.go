@@ -1,6 +1,6 @@
-package biz
+package model
 
 import "github.com/google/wire"
 
-// ProviderSet is biz providers.
+// ProviderSet is model providers.
 var ProviderSet = wire.NewSet(NewGreeterUsecase)

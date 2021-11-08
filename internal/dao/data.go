@@ -1,4 +1,4 @@
-package data
+package dao
 
 import (
 	"github.com/go-kratos/kratos-layout/internal/conf"
@@ -6,7 +6,7 @@ import (
 	"github.com/google/wire"
 )
 
-// ProviderSet is data providers.
+// ProviderSet is dao providers.
 var ProviderSet = wire.NewSet(NewData, NewGreeterRepo)
 
 // Data .
@@ -17,7 +17,7 @@ type Data struct {
 // NewData .
 func NewData(c *conf.Data, logger log.Logger) (*Data, func(), error) {
 	cleanup := func() {
-		log.NewHelper(logger).Info("closing the data resources")
+		log.NewHelper(logger).Info("closing the dao resources")
 	}
 	return &Data{}, cleanup, nil
 }
